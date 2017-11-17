@@ -1,8 +1,6 @@
 Event Management Application
 ============================
 
-**Disclaimer**: *This Readme may change several times before 11 am*
-
 Using Django Rest Framework and Vue.js create an application that accomplishes the following...
 
 You will be building an event management application. Your program will contain at least users and events. Users can attend many events and an event can be attended by many users. Events are created by the user and thus belongs to the user. A user can create multiple events.
