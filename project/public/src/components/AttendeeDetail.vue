@@ -31,28 +31,13 @@ export default {
 	data: function(){
 		return {
 			mode: {
-				detail: false,
-				edit: false
-			}
-		}
-	},
-	methods: {
-		detailClick: function(event){
-			this.$set(this.mode, "detail", !this.mode.detail);
-
-			if (this.mode.detail && !Object.hasOwnProperty.call(this.attendee, "attendees")){
-				this.$store.dispatch("loadAttendees", {
-					attendee: this.attendee
-				});
+				edit: false,
 			}
 		}
 	},
 	computed: {
 		editMode: function(){
 			return this.mode.edit ? "Hide":"Change Status";
-		},
-		detailMode: function(){
-			return this.mode.detail ? "Hide":"Detail";
 		},
 	}
 	
