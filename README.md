@@ -1,7 +1,7 @@
 Event Management Application
 ============================
 
-**Disclaimer**: *This Readme may change several times before 10 am*
+**Disclaimer**: *This Readme may change several times before 11 am*
 
 Using Django Rest Framework and Vue.js create an application that accomplishes the following...
 
