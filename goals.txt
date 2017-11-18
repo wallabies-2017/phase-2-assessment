@@ -1,0 +1,9 @@
+
+# As a user, I can register for an account and sign in/out. (i.e. an account has a unique e-mail, password)
+# As a user, I can create new events (Events have a title, description, location).
+# As a user, I can edit events I have created.
+# As a user, I can destroy events I have created.
+As a user, I can view a list of all events.
+As a user, I can sign up to attend an event.
+As a user, I have a personal page that shows all the events that I've created and attended
+# As a user, I would like a clean and approachable interface. - This is assumed
