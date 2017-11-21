@@ -37,7 +37,9 @@ export default {
 					description: description,
 					location: location
 				}
+
 			});
+			this.$emit("editSubmitted");
 			
 		}
 	}

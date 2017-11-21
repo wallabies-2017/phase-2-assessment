@@ -12,6 +12,7 @@
 				v-if="mode.edit" 
 				v-bind:event="event" 
 				v-bind:key="event.id"
+				v-on:editSubmitted="mode.edit = false"
 			>
 			</edit-event>
 		</transition-group>
@@ -34,12 +35,13 @@
 			{{ editMode }}
 		</button>
 		
-		<button 
+		<btn 
+			type="danger" 
 			v-bind:key="event.id"
-			v-on:click="deleteEvent" 
+			v-on:click="deleteEvent"
 		>
 			Delete
-		</button>
+		</btn>
 		
 
 		<transition-group name="component-fade" mode="in-out">
