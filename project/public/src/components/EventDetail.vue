@@ -1,12 +1,11 @@
 <template>
 	<div>
 		<transition-group name="component-fade" mode="in-out">
-			<event-list 
-				v-if="!mode.edit" 
-				v-bind:event="event" 
-				v-bind:key="event.id"
-			>
-			</event-list>
+			<div v-bind:key="event.id">
+				<p>Title: {{event.title}}</p> 
+				<p>Description: {{event.description}}</p>
+				<p>Location: {{event.location}}</p>
+			</div>
 			
 			<edit-event 
 				v-if="mode.edit" 
@@ -16,23 +15,8 @@
 			>
 			</edit-event>
 		</transition-group>
+		
 		<btn-group>
-			<btn 
-				active
-				size="xs"
-				v-bind:key="event.id"
-				v-on:click="mode.detail = !mode.detail"
-			>
-				{{ detailMode }}
-			</btn>
-			<btn
-				active
-				size="xs"
-				v-bind:key="event.id"
-				v-on:click="attendeesClick"
-			>
-				{{ attendeesMode }}
-			</btn>
 			<btn 
 				active
 				size="xs"
@@ -61,7 +45,6 @@
 			</create-attendee>
 
 			<ul 
-				v-if="mode.attendees"
 				v-bind:event="event"
 				v-bind:key="event.id"
 			>
@@ -87,7 +70,6 @@ export default {
 	data: function(){
 		return {
 			mode: {
-				detail: false,
 				edit: false,
 				attendees: false,
 			}
@@ -98,36 +80,12 @@ export default {
 			this.$store.dispatch("deleteEvent", {
 				event: this.event
 			});
-		},
-		detailClick: function(event){
-			this.$set(this.mode, "detail", !this.mode.detail);
-
-			if (this.mode.detail && !Object.hasOwnProperty.call(this.event, "attendees")){
-				this.$store.dispatch("loadAttendees", {
-					event: this.event
-				});
-			}
-		},
-		attendeesClick: function(event){
-			this.$set(this.mode, "attendees", !this.mode.attendees);
-
-			if (this.mode.attendees && !Object.hasOwnProperty.call(this.event, "attendees")){
-				this.$store.dispatch("loadAttendees", {
-					event: this.event
-				});
-			}
-		},
+		}
 	},	
 	computed: {
 		editMode: function(){
 			return this.mode.edit ? "Hide":"Edit";
-		},
-		detailMode: function(){
-			return this.mode.detail ? "Hide":"Going?";
-		},
-		attendeesMode: function(){
-			return this.mode.attendees ? "Hide":"Attendee List";
-		},
+		}
 	}	
 };
 </script>

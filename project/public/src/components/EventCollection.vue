@@ -4,7 +4,7 @@
 			<tab title="Events">
 				<ul>
 					<li 
-						is="event-detail" 
+						is="event-summary" 
 						v-for="item in events" 
 						v-bind:event="item">
 					</li>
@@ -31,7 +31,7 @@ export default {
 	name: "event-collection",
 	data: function(){
 		return {
-			currentPage: 1,
+			currentPage: parseInt(this.$route.query.page) || 1,
 			perPage: 3
 		}
 	},
@@ -45,6 +45,14 @@ export default {
 			chunkStart = (this.currentPage - 1) * this.perPage;
 			chunkEnd = chunkStart + this.perPage;
 			return events.slice(chunkStart, chunkEnd);
+		}
+	},
+	watch: {
+		"$route": function(newRoute, oldRoute){
+			this.$set(this, "currentPage", parseInt(newRoute.query.page));
+		},
+		"currentPage": function(newPage, oldPage){
+			this.$router.push({"path": location.path, "query": {"page": newPage}});
 		}
 	}
 };
