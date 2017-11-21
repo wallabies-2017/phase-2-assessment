@@ -1,4 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Vue from 'vue';
 import * as uiv from 'uiv';
@@ -75,9 +74,5 @@ router.beforeEach(function(to, from, next){
 var app = new Vue({
 	el: '#app',
 	store: DataStore,
-	router: router,
-	// created: function(){
-	// 	this.$store.dispatch('loadEvents');
-	// 	console.log('created');
-	// }
+	router: router
 });
