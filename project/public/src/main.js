@@ -1,7 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Vue from 'vue';
 import * as uiv from 'uiv';
+
+Vue.use(uiv);
+
 
 import EventCollection from './components/EventCollection.vue'
 import EventList from './components/EventList.vue';
@@ -25,7 +28,6 @@ Vue.component("attendee-detail", AttendeeDetail);
 Vue.component("create-attendee", CreateAttendee);
 Vue.component("edit-attendee", EditAttendee);
 
-Vue.use(uiv);
 
 var app = new Vue({
 	el: '#app',

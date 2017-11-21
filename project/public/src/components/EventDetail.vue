@@ -16,33 +16,41 @@
 			>
 			</edit-event>
 		</transition-group>
-		<button 
-			v-bind:key="event.id"
-			v-on:click="mode.detail = !mode.detail"
-		>
-			{{ detailMode }}
-		</button>
-		<button
-			v-bind:key="event.id"
-			v-on:click="attendeesClick"
-		>
-			{{ attendeesMode }}
-		</button>
-		<button 
-			v-bind:key="event.id"
-			v-on:click="mode.edit = !mode.edit" 
-		>
-			{{ editMode }}
-		</button>
-		
-		<btn 
-			type="danger" 
-			v-bind:key="event.id"
-			v-on:click="deleteEvent"
-		>
-			Delete
-		</btn>
-		
+		<btn-group>
+			<btn 
+				active
+				size="xs"
+				v-bind:key="event.id"
+				v-on:click="mode.detail = !mode.detail"
+			>
+				{{ detailMode }}
+			</btn>
+			<btn
+				active
+				size="xs"
+				v-bind:key="event.id"
+				v-on:click="attendeesClick"
+			>
+				{{ attendeesMode }}
+			</btn>
+			<btn 
+				active
+				size="xs"
+				v-bind:key="event.id"
+				v-on:click="mode.edit = !mode.edit" 
+			>
+				{{ editMode }}
+			</btn>
+			
+			<btn 
+				type="danger"
+				size="xs" 
+				v-bind:key="event.id"
+				v-on:click="deleteEvent"
+			>
+				Delete
+			</btn>
+		</btn-group>
 
 		<transition-group name="component-fade" mode="in-out">
 			<create-attendee 

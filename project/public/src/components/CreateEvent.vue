@@ -10,7 +10,7 @@
 			<input type="text" name="location" v-model="location">
 		</label>
 		
-			<button type="submit">Create Post</button>
+			<btn block size="sm" type="success" native-type="submit">Create Post</btn>
 			
 	</form>
 </template>
