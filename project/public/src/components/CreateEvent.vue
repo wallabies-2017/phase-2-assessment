@@ -10,7 +10,9 @@
 			<input type="text" name="location" v-model="location">
 		</label>
 		
-			<button type="submit">Create Event</button>
+			<button type="submit" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> create
+</button>
 			
 	</form>
 </template>

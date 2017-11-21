@@ -55,10 +55,10 @@ const store = new Vuex.Store({
 				});
 			});
 		},
-		addComment: function(context, payload){
+		addTicket: function(context, payload){
 			if (payload.event){
-				api.addEventComment(payload.event.id, payload.data).then(function({request, data}){
-					context.commit("addComment", {
+				api.addEventTicket(payload.event.id, payload.data).then(function({request, data}){
+					context.commit("addTicket", {
 						obj: payload.event,
 						data: data
 					});
@@ -98,7 +98,7 @@ const store = new Vuex.Store({
 		loadComments: function(context, payload){
 			if(payload.event){
 				// load comments for a post
-				var comments = api.getEventComments(payload.event.id);
+				var comments = api.getEventTickets(payload.event.id);
 				comments.then(function({data, request}){
 					context.commit("loadComments", {
 						"obj": payload.event,

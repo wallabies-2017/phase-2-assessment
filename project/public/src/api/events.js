@@ -18,18 +18,13 @@ export default {
 			url: '/events/' + eventId
 		});
 	},
-	getEventComments: function(eventId){
+	getEventTickets: function(eventId){
 		return axios({
 			method: 'get',
-			url: '/events/' + eventId + '/comments'
+			url: '/events/' + eventId + '/tickets'
 		});
 	},
-	getCommentComments: function(commentId){
-		return axios({
-			method: 'get',
-			url: '/comments/' + commentId + '/comments'
-		});
-	},
+
 	createEvent: function(data){
 		return axios({
 			method: 'post',

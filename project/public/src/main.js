@@ -1,4 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import Vue from 'vue'
+
+
+import * as uiv from 'uiv'
+
 
 
 import CreateEvent from './components/CreateEvent.vue'
@@ -11,12 +17,16 @@ import EditEvent from './components/EditEvent.vue'
 import DataStore from './store.js'
 
 
-
 Vue.component("create-event", CreateEvent);
 Vue.component("event-list-item", EventDetail);
 Vue.component("event-list-summary", EventList);
 Vue.component("events-collection", EventCollection);
 Vue.component("edit-event", EditEvent);
+
+
+
+Vue.use(uiv)
+
 
 
 const NotFound = { template: '<p>Page not found</p>' }

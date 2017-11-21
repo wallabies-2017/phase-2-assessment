@@ -1,5 +1,6 @@
 <template>
 	<div>
+
 		<transition-group name="component-fade" mode="in-out">
 			<event-list-summary 
 				v-if="!mode.edit" 
@@ -10,49 +11,47 @@
 			
 			<edit-event 
 				v-if="mode.edit" 
-				v-bind:evemt="event" 
+				v-bind:event="event" 
 				v-bind:key="event.id"
 			>
 			</edit-event>
 		</transition-group>
 
-		<button 
+		<btn 
+
+
 			v-bind:key="event.id"
 			v-on:click="mode.edit = !mode.edit" 
 		>
 			{{ editMode }}
-		</button>
-		<button 
+		</btn>
+
+
+		<btn
 			v-bind:key="event.id"
 			v-on:click="detailClick"
 		>
 			{{ detailMode }}
-		</button>
+		</btn>
 
 
-		<button 
+		<btn size='small' type='danger' 
+
 			v-bind:key="event.id"
 			v-on:click="deleteEvent" 
 		>
 			Delete
-		</button>
+		</btn>
 
-		<input type="radio" id="one" value="Attending" v-model="picked">
-		<label for="Attending">Attending</label>
-		<br>
-		<input type="radio" id="two" value="Not Attending" v-model="picked">
-		<label for="Not Attending">Not Attending</label>
-		<br>
-		<span>Status?: {{ picked }}</span>
-		
+	
 
 		<transition-group name="component-fade" mode="in-out">
-			<add-comment 
+		<!-- 	<add-ticket 
 				v-if="mode.detail && event.comments"
 				v-bind:event="event"
 				v-bind:key="event.id"
 			>
-			</add-comment>
+			</add-ticket> -->
 
 			<ul 
 				v-if="mode.detail"

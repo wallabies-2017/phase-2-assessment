@@ -1,5 +1,5 @@
 <template>
-	<div> <p> Events : </p>
+	<div> <p> Event : </p>
 		<p>Name: {{event.title}}</p> <p>Description: {{event.description}} </p> <p> Located at: {{event.location}}<p> created by: {{event.username}}</p> 
 	</div>
 </template>

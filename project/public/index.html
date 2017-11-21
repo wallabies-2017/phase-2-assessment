@@ -4,25 +4,30 @@
 		
 		<title>Event Management App</title>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+	
+
 
 	</head>
 	<body>
-		<h1> Create your events down below </h1>
-		<p> welcome to event management </p>
-		<div id="app">
-			<create-event></create-event>
-			<ul>
-				<li 
-					is="event-list-item"
-					v-for="item in sharedState.events"
-					v-bind:event="item"
-				>
-				</li>
-			</ul>
-			
 
-			
-		</div>
+		<div>
+			<div id="app">
+				<create-event></create-event>
+				<ul>
+
+					<li 
+						is="event-list-item"
+						v-for="item in sharedState.events"
+						v-bind:event="item"
+					>
+					</li>
+				</ul>
+				
+
+		</div>	
+			</div>
+
+
 
 		<script src="/dist/build.js"></script>
 	</body>
