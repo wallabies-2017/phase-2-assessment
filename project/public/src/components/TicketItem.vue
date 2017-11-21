@@ -29,7 +29,6 @@
 
 			<ul 
 				v-if="mode.detail"
-				v-bind:key="ticket.id"
 			>
 				<li 
 					is="ticket-item"

@@ -1,5 +1,8 @@
-import Vue from 'vue';
 
+import Vue from 'vue';
+import * as uiv from 'uiv';
+
+Vue.use(uiv);
 
 
 import EventItem from './components/EventItem.vue'

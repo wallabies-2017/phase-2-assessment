@@ -3,22 +3,32 @@
 	<head>
 		<title>Event Manager</title>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	</head>
 	<body>
 		<div id="app">
-			<ul>
-				<li 
-					is="event-item"
-					v-for="item in sharedState.events"
-					v-bind:event="item"
-				>
-				</li>
-			</ul>
-			
+			<tabs>
+  				<tab title="Home">
+    				<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+  				
+					<div>
+						<ul>
+							<li 
+								is="event-item"
+								v-for="item in sharedState.events"
+								v-bind:event="item"
+							>
+							</li>
+						</ul>
 
-			<create-event></create-event>
-			
+						<create-event></create-event>
+					</div>
+				</tab>
+				<tab>
+					<p>WE OUT</p>
+				</tab>
+			</tabs>
 		</div>
 
 		<script src="/dist/build.js"></script>

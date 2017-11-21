@@ -15,7 +15,8 @@
 export default {
 	name: 'create-ticket',
 	props:{
-		event: Object
+		event: Object,
+		ticket: Object
 	},
 	data: function(){
 		return {
