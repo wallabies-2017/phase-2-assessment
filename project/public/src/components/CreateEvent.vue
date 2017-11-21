@@ -1,4 +1,5 @@
 <template>
+	
 	<form v-on:submit.prevent="createEvent($event, title, description, location)">
 		<label> Title:
 			<input type="text" name="title" v-model="title">
@@ -13,6 +14,7 @@
 			<button type="submit">Create Event</button>
 			
 	</form>
+
 </template>
 
 

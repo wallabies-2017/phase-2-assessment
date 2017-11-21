@@ -1,4 +1,5 @@
 <template>
+	
 	<form v-on:submit.prevent="createTicket($event, status)">
 		<label>	Status:
 			<input type="text" name="status" v-model="status">
