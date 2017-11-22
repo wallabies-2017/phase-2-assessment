@@ -38,9 +38,11 @@ const router = new VueRouter({
 		},
 		{
 			path: '/events/:id',
+			name: 'event',
 			component: EventDetail,
 			props: true,
 			beforeEnter: function(to, from, next){
+				console.log(to);
 				event = DataStore.getters.getEvent(parseInt(to.params.id));
 				if (event){
 					to.params.event = event;
@@ -55,8 +57,14 @@ const router = new VueRouter({
 					}
 				} else {
 					console.log("error");
+					// next({name: '404'});
 				}
 			}
+		},
+		{
+			path: '/error',
+			name: '404',
+			component: {template: '<p>Not Found</p>'}
 		}
 	]
 });
