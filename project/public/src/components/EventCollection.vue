@@ -14,11 +14,12 @@
 							v-bind:event="item">
 						</li>
 					</ul>
-					<pagination
+					<el-pagination
 						v-model="current"
 						:total="totalPages"
-						layout="pager"
-					/>
+						layout="prev, pager, next"
+					>
+					</el-pagination>
 				</el-tab-pane>
 				
 				<el-tab-pane label="Profile" icon="music">
