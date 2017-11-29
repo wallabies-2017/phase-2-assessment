@@ -1,49 +1,26 @@
 <!-- http://element.eleme.io/#/en-US/component/tabs -->
 
-<!-- https://chenz24.github.io/vue-blu/#/en/components/pagination -->
+<!-- http://element.eleme.io/#/en-US/component/pagination -->
 <template>	
-	<div class="columns">
-		<div class="column">
-			<el-tabs type="toggle" :is-full-width="true">
-				
-				<el-tab-pane label="Events" icon="image">
-					<el-row>
-						<el-col :offset="6" :span="12">
-							<ul>
-								<li 
-									is="event-summary" 
-									v-for="item in events" 
-									v-bind:event="item">
-								</li>
-							</ul>
-							<el-pagination
-								v-model="current"
-								:page-count="totalPages"
-								:page-size="perPage"
-								layout="prev, pager, next"
-								v-on:current-change="currentChange"
-							>
-							</el-pagination>
-						</el-col>
-					</el-row>
-				</el-tab-pane>
-				
-				<el-tab-pane label="Profile" icon="music">
-					<p>Placeholder</p>
-				</el-tab-pane>
-				
-				<el-tab-pane label="Create Event" icon="film">
-					<el-row>
-						<el-col :offset="6" :span="12">
-							<create-event></create-event>
-						</el-col>
-					</el-row>
-					
-				</el-tab-pane>
-			
-			</el-tabs>
-		</div>
-	</div>
+	<el-row>
+		<el-col :offset="6" :span="12">
+			<ul>
+				<li 
+					is="event-summary" 
+					v-for="item in events" 
+					v-bind:event="item">
+				</li>
+			</ul>
+			<el-pagination
+				v-model="current"
+				:page-count="totalPages"
+				:page-size="perPage"
+				layout="prev, pager, next"
+				v-on:current-change="currentChange"
+			>
+			</el-pagination>
+		</el-col>
+	</el-row>
 </template>
 
 

@@ -1,7 +1,7 @@
 "use strict";
 import Vue from 'vue';
 import Vuex from 'vuex';
-import api from './api/events.js'
+import api from '../api/events.js'
 
 Vue.use(Vuex);
 

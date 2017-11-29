@@ -8,6 +8,7 @@
 		
 		<el-form-item label="Description:">
 			<el-input type="textarea" v-model="description" placeholder="Event Description"></el-input>
+			
 		</el-form-item>
 
 		<el-form-item label="Location:">

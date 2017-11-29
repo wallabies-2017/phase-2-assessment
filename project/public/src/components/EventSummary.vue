@@ -10,7 +10,7 @@
 
 <script>
 export default {
-	name: "eventSummary",
+	name: "event-summary",
 	props:{
 		event: Object
 	}
