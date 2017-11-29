@@ -1,3 +1,5 @@
+<!-- https://chenz24.github.io/vue-blu/#/en/components/tabs -->
+
 <template>	
 	<div class="columns">
 		<div class="column">
@@ -22,7 +24,10 @@
 				</tab-item>
 				
 				<tab-item label="Create Event" icon="film">
-					<create-event></create-event>
+					<div class="columns">
+
+						<div class="column is-6" is="create-event"></div>
+					</div>
 				</tab-item>
 			
 			</tabs>
