@@ -1,10 +1,10 @@
 
 import Vue from 'vue';
-import VueBlu from 'vue-blu';
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
 import VueRouter from 'vue-router';
-import 'vue-blu/dist/css/vue-blu.min.css';
 
-Vue.use(VueBlu)
+Vue.use(ElementUI);
 Vue.use(VueRouter);
 
 
