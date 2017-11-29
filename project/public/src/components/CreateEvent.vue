@@ -13,7 +13,7 @@
 		</p>
 
 		<label class="label">Location:</label>
-		<p class="control">	
+		<p class="control">
 			<input class="input" type="text" placeholder="Event Location" v-model="location">
 		</p>
 		

@@ -1,13 +1,12 @@
-<!-- https://chenz24.github.io/vue-blu/#/en/components/tabs -->
+<!-- http://element.eleme.io/#/en-US/component/tabs -->
 
-<!-- This one isn't in english. If I can figure it out you can too. -->
 <!-- https://chenz24.github.io/vue-blu/#/en/components/pagination -->
 <template>	
 	<div class="columns">
 		<div class="column">
-			<tabs type="toggle" :is-full-width="true">
+			<el-tabs type="toggle" :is-full-width="true">
 				
-				<tab-item label="Events" icon="image">
+				<el-tab-pane label="Events" icon="image">
 					<ul>
 						<li 
 							is="event-summary" 
@@ -20,20 +19,19 @@
 						:total="totalPages"
 						layout="pager"
 					/>
-				</tab-item>
+				</el-tab-pane>
 				
-				<tab-item label="Profile" icon="music">
+				<el-tab-pane label="Profile" icon="music">
 					<p>Placeholder</p>
-				</tab-item>
+				</el-tab-pane>
 				
-				<tab-item label="Create Event" icon="film">
+				<el-tab-pane label="Create Event" icon="film">
 					<div class="columns">
-
 						<div class="column is-6" is="create-event"></div>
 					</div>
-				</tab-item>
+				</el-tab-pane>
 			
-			</tabs>
+			</el-tabs>
 		</div>
 	</div>
 </template>
