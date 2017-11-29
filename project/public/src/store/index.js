@@ -12,7 +12,7 @@ const store = new Vuex.Store({
 	},
 	mutations: {
 		createEvent: function(state, payload){
-			state.events.push(payload)
+			state.events.push(payload);
 		},
 		loadEvents: function(state, payload){
 			Vue.set(state, 'events', payload.data);

@@ -14,6 +14,15 @@ const router = new VueRouter({
 				"header": {"template": '<h2 class="align-center">Jimmy Sucks</h2>'},
 				"aside": {"template": "<default-navbar></default-navbar>"},
 				"main": {"template": "<event-collection></event-collection>"}
+			},
+			beforeEnter: function(to, from, next){
+				if (DataStore.getters.getEvents.length){
+					next();
+				} else {	
+					DataStore.dispatch('loadEvents').then(function(){
+						next();
+					});
+				}
 			}
 		},
 		{
@@ -38,7 +47,12 @@ const router = new VueRouter({
 			name: "event-detail",
 			path: '/events/:id',
 			name: 'event',
-			component: {"template": "<event-detail></event-detail>"},
+			components: 
+			{
+				"header": { "template": '<h2 class="align-center">Jimmy Sucks</h2>'},
+				"aside": { "template": "<default-navbar></default-navbar>"},
+				"main": { "template": "<event-detail></event-detail>" }
+			},
 			props: true,
 			beforeEnter: function(to, from, next){
 				event = DataStore.getters.getEvent(parseInt(to.params.id));
@@ -62,19 +76,11 @@ const router = new VueRouter({
 		{
 			path: '/error',
 			name: '404',
-			component: { template: '<p>Not Found</p>' }
+			components: {
+				"main": { "template": '<p>Not Found</p>' }
+			}
 		}
 	]
-});
-
-router.beforeEach(function(to, from, next){
-	if (DataStore.getters.getEvents.length){
-		next();
-	} else {	
-		DataStore.dispatch('loadEvents').then(function(){
-			next();
-		});
-	}
 });
 
 

@@ -1,6 +1,6 @@
 <template>
 	<el-menu
-		:default-active="activeIndex"
+		v-model="defaultActive"
 		:router="!!$router"
 		mode="vertical"
 	>
@@ -15,11 +15,15 @@
 <script>
 export default {
 	name: "default-navbar",
-	computed: {
-		activeIndex: function(){
-			return this.$route.path;
-		}
+	data: function(){ 
+		return {
+			defaultActive: null
+		};
 	},
-
+	watch: {
+		"$route": function(newRoute, oldRoute){
+			this.$set(this, "defaultActive", newRoute.path)
+		}
+	}
 };
 </script>
