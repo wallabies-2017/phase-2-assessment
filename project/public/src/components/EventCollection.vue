@@ -18,8 +18,10 @@
 							</ul>
 							<el-pagination
 								v-model="current"
-								:total="totalPages"
+								:page-count="totalPages"
+								:page-size="perPage"
 								layout="prev, pager, next"
+								v-on:current-change="currentChange"
 							>
 							</el-pagination>
 						</el-col>
@@ -64,6 +66,11 @@ export default {
 			chunkStart = (this.current - 1) * this.perPage;
 			chunkEnd = chunkStart + this.perPage;
 			return events.slice(chunkStart, chunkEnd);
+		}
+	},
+	methods: {
+		"currentChange": function(newPage){
+			this.$set(this, "current", newPage);
 		}
 	},
 	watch: {
