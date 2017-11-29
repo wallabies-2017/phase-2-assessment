@@ -1,27 +1,32 @@
 <template>	
-	<div>
-		<tabs>
-			<tab title="Events">
-				<ul>
-					<li 
-						is="event-summary" 
-						v-for="item in events" 
-						v-bind:event="item">
-					</li>
-				</ul>
-				<pagination
-					v-model="currentPage"
-					:total-page="totalPages"
-				/>
-			</tab>
-			<tab title="Profile">
-				<p>Placeholder</p>
-			</tab>
-			<tab title="Create Event" pull-right>
-				<create-event></create-event>
-			</tab>
-		</tabs>
+	<div class="columns">
+		<div class="column">
+			<tabs type="toggle" :is-full-width="true">
+				
+				<tab-item label="Events" icon="image">
+					<ul>
+						<li 
+							is="event-summary" 
+							v-for="item in events" 
+							v-bind:event="item">
+						</li>
+					</ul>
+					<pagination
+						v-model="currentPage"
+						:total-page="totalPages"
+					/>
+				</tab-item>
+				
+				<tab-item label="Profile" icon="music">
+					<p>Placeholder</p>
+				</tab-item>
+				
+				<tab-item label="Create Event" icon="film">
+					<create-event></create-event>
+				</tab-item>
 			
+			</tabs>
+		</div>
 	</div>
 </template>
 

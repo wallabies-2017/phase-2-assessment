@@ -1,9 +1,10 @@
 
 import Vue from 'vue';
-import * as uiv from 'uiv';
+import VueBlu from 'vue-blu';
 import VueRouter from 'vue-router';
+import 'vue-blu/dist/css/vue-blu.min.css';
 
-Vue.use(uiv);
+Vue.use(VueBlu)
 Vue.use(VueRouter);
 
 

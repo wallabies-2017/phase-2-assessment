@@ -33,7 +33,13 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        // *******************************************
+        // *******************************************
+        // 'test' FOR file-loader now includes ttf|otf|eot|woff(2) and (\?[a-z0-9]+)?
+        // ttf, otf, eot, woff are extensions used to identify font and icon files
+        // *******************************************
+        // *******************************************
+        test: /\.(png|jpg|gif|svg|ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
