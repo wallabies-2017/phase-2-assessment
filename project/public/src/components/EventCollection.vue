@@ -1,5 +1,7 @@
 <!-- https://chenz24.github.io/vue-blu/#/en/components/tabs -->
 
+<!-- This one isn't in english. If I can figure it out you can too. -->
+<!-- https://chenz24.github.io/vue-blu/#/en/components/pagination -->
 <template>	
 	<div class="columns">
 		<div class="column">
@@ -14,8 +16,9 @@
 						</li>
 					</ul>
 					<pagination
-						v-model="currentPage"
-						:total-page="totalPages"
+						v-model="current"
+						:total="totalPages"
+						layout="pager"
 					/>
 				</tab-item>
 				
@@ -41,7 +44,7 @@ export default {
 	name: "event-collection",
 	data: function(){
 		return {
-			currentPage: parseInt(this.$route.query.page) || 1,
+			current: parseInt(this.$route.query.page) || 1,
 			perPage: 3
 		}
 	},
@@ -52,16 +55,16 @@ export default {
 		events: function(){
 			var events, chunkStart, chunkEnd;
 			events = this.$store.getters.getEvents;
-			chunkStart = (this.currentPage - 1) * this.perPage;
+			chunkStart = (this.current - 1) * this.perPage;
 			chunkEnd = chunkStart + this.perPage;
 			return events.slice(chunkStart, chunkEnd);
 		}
 	},
 	watch: {
 		"$route": function(newRoute, oldRoute){
-			this.$set(this, "currentPage", parseInt(newRoute.query.page));
+			this.$set(this, "current", parseInt(newRoute.query.page));
 		},
-		"currentPage": function(newPage, oldPage){
+		"current": function(newPage, oldPage){
 			this.$router.push({"path": location.path, "query": {"page": newPage}});
 		}
 	}
