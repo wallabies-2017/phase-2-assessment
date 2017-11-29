@@ -1,27 +1,23 @@
 <!-- https://chenz24.github.io/vue-blu/#/en/components/form -->
 
 <template>
-	<form v-on:submit.prevent="createEvent($event, title, description, location)">
-		<label class="label">Title:</label>
-		<p class="control">
-			<input class="input" type="text" placeholder="Event Title" v-model="title">
-		</p>
-
-		<label class="label">Description:</label>
-		<p class="control">
-			<textarea class="textarea" placeholder="Event Description" v-model="description"></textarea>
-		</p>
-
-		<label class="label">Location:</label>
-		<p class="control">
-			<input class="input" type="text" placeholder="Event Location" v-model="location">
-		</p>
+	<el-form ref="form" v-on:submit.prevent="createEvent($event, title, description, location)">
+		<el-form-item label="Title:">
+			<el-input v-model="title" placeholder="Event Title"></el-input>
+		</el-form-item>
 		
-		<p class="control">
-			<button class="button is-primary is-outlined is-fullwidth">Create Event</button>
-		</p>
-			
-	</form>
+		<el-form-item label="Description:">
+			<el-input type="textarea" v-model="description" placeholder="Event Description"></el-input>
+		</el-form-item>
+
+		<el-form-item label="Location:">
+			<el-input type="text" v-model="location" placeholder="Event Location"></el-input>
+		</el-form-item>
+		
+		<el-form-item>
+			<el-button type="primary" v-on:click="onSubmit($event, title, description, location)">Create Event</el-button>
+		</el-form-item>
+	</el-form>
 </template>
 
 
@@ -36,7 +32,7 @@ export default {
 		};
 	},
 	methods:{
-		createEvent: function(event, title, description, location){
+		onSubmit: function(event, title, description, location){
 			this.$store.dispatch("createEvent", {
 				data: {
 					title: title,

@@ -7,19 +7,23 @@
 			<el-tabs type="toggle" :is-full-width="true">
 				
 				<el-tab-pane label="Events" icon="image">
-					<ul>
-						<li 
-							is="event-summary" 
-							v-for="item in events" 
-							v-bind:event="item">
-						</li>
-					</ul>
-					<el-pagination
-						v-model="current"
-						:total="totalPages"
-						layout="prev, pager, next"
-					>
-					</el-pagination>
+					<el-row>
+						<el-col :offset="6" :span="12">
+							<ul>
+								<li 
+									is="event-summary" 
+									v-for="item in events" 
+									v-bind:event="item">
+								</li>
+							</ul>
+							<el-pagination
+								v-model="current"
+								:total="totalPages"
+								layout="prev, pager, next"
+							>
+							</el-pagination>
+						</el-col>
+					</el-row>
 				</el-tab-pane>
 				
 				<el-tab-pane label="Profile" icon="music">
@@ -27,9 +31,12 @@
 				</el-tab-pane>
 				
 				<el-tab-pane label="Create Event" icon="film">
-					<div class="columns">
-						<div class="column is-6" is="create-event"></div>
-					</div>
+					<el-row>
+						<el-col :offset="6" :span="12">
+							<create-event></create-event>
+						</el-col>
+					</el-row>
+					
 				</el-tab-pane>
 			
 			</el-tabs>
