@@ -86,6 +86,11 @@ export default {
 		editMode: function(){
 			return this.mode.edit ? "Hide":"Edit";
 		}
+	},
+	created: function(){
+		if (!this.event){
+			this.$set(this, "event", this.$route.params.event);
+		}
 	}	
 };
 </script>
