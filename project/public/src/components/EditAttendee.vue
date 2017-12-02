@@ -5,7 +5,7 @@
 			<option>Not Attending</option>
 			<option>Maybe</option>
 		</select>	
-			<button type="submit">Submit</button>
+			<el-button type="submit">Submit</el-button>
 			
 	</form>
 </template>

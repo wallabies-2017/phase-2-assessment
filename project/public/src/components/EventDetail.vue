@@ -16,25 +16,25 @@
 			</edit-event>
 		</transition-group>
 		
-		<btn-group>
-			<btn 
+		<el-button-group>
+			<el-button 
 				active
 				size="xs"
 				v-bind:key="event.id"
 				v-on:click="mode.edit = !mode.edit" 
 			>
 				{{ editMode }}
-			</btn>
+			</el-button>
 			
-			<btn 
+			<el-button 
 				type="danger"
 				size="xs" 
 				v-bind:key="event.id"
 				v-on:click="deleteEvent"
 			>
 				Delete
-			</btn>
-		</btn-group>
+			</el-button>
+		</el-button-group>
 
 		<transition-group name="component-fade" mode="in-out">
 			<create-attendee 
@@ -86,11 +86,6 @@ export default {
 		editMode: function(){
 			return this.mode.edit ? "Hide":"Edit";
 		}
-	},
-	created: function(){
-		if (!this.event){
-			this.$set(this, "event", this.$route.params.event);
-		}
-	}	
+	}
 };
 </script>

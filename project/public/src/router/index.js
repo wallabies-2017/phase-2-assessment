@@ -49,27 +49,27 @@ const router = new VueRouter({
 			name: 'event',
 			components: 
 			{
-				"header": { "template": '<h2 class="align-center">Jimmy Sucks</h2>'},
+				"header": { "template": '<h2>Jimmy Sucks</h2>'},
 				"aside": { "template": "<default-navbar></default-navbar>"},
-				"main": { "template": "<event-detail></event-detail>" }
-			},
-			props: true,
-			beforeEnter: function(to, from, next){
-				event = DataStore.getters.getEvent(parseInt(to.params.id));
-				if (event){
-					to.params.event = event;
-					if (!Object.hasOwnProperty.call(event, "attendees")){
-						DataStore.dispatch("loadAttendees", {
-							event: event
-						}).then(function(){
-							next();
-						});
-					} else {
-						next();
+				"main": { 
+					"template": '<event-detail :event="event"></event-detail>', 
+					"props": {
+						"event": {
+							"required": true, 
+							"type": Object
+						}
 					}
-				} else {
-					console.log("error");
-					// next({name: '404'});
+				}
+			},
+			props: { 
+				main : function(route){
+					event = DataStore.getters.getEvent(parseInt(route.params.id));
+					if (event){
+						return {"event": event};
+					} else {
+						console.log("error");
+						return {"event": {"id": 7}};
+					}
 				}
 			}
 		},

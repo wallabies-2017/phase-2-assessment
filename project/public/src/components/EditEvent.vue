@@ -9,7 +9,7 @@
 		<label> Location:
 			<input type="text" name="location" v-model="location">
 		</label>	
-			<button type="submit">Edit Event</button>
+		<el-button type="submit">Edit Event</el-button>
 			
 	</form>
 </template>
